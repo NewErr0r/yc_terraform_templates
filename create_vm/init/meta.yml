@@ -1,0 +1,11 @@
+#cloud-config
+users:
+  - name: yc-user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - "${ssh_key}"
+
+runcmd:
+  - sudo echo -e "P@ssw0rd\nP@ssw0rd\n" | passwd
